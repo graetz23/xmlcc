@@ -31,11 +31,11 @@
 
 /******************************************************************************/
 
-#include "./xmlcc/xmlcc.h" // include of XMLCC:: - XML library
+#include "./xmlcc/xmlcc.h" // include of XMLCC::
 
 /******************************************************************************/
 
-// use this, XMLCC:: is still keeping DOM::, SAX::, CFG::, SYS::, and TEST::
+// XMLCC:: is still keeping DOM::, SAX::, CFG::, SYS::, and TEST::
 using namespace XMLCC;
 
 /******************************************************************************/
@@ -49,7 +49,7 @@ main( int argc, char** argv ) {
 
     /**************************************************************************/
 
-    if( true ) { // example generating the actual config file for XMLCC
+    if( true ) { // print version and built date at start up
 
       std::cout << "XMLCC:: version " << _XMLCC_VERSION_ << " package "
           << _XMLCC_PACKAGE_ << std::endl << std::flush;
@@ -61,7 +61,7 @@ main( int argc, char** argv ) {
 
     /**************************************************************************/
 
-    if( true ) { // example generating the actual config file for XMLCC
+    if( true ) { // generating the actual config file for XMLCC
 
       std::cout << "writing config to file .. " << std::flush;
       CFG::Config::write( CFG::Config::generate( ) ); // static methods
@@ -77,7 +77,7 @@ main( int argc, char** argv ) {
 
     /**************************************************************************/
 
-    if( true ) { // example generating the actual config XML for XMLCC
+    if( true ) { // generating a simple web page by using DOM objects directly
 
       // example how to generate, view, and write content in XML (HTML)
       DOM::Root* xml = 0;
@@ -112,7 +112,15 @@ main( int argc, char** argv ) {
 
     /**************************************************************************/
 
-    XMLCC::Str fileName = ""; // get file name from console or use xmlccMalformed.xml
+    if( true ) { // generating a simple web page by using DOM objects directly
+
+      // TODO implement web page example using DOM::Controller
+
+    } // if
+
+    /**************************************************************************/
+
+    XMLCC::Str fileName = ""; // file name by console or use xmlccMalformed.xml
     if( argc >= 2 )
       fileName.append( argv[ 1 ] );
     else
@@ -120,7 +128,7 @@ main( int argc, char** argv ) {
 
     /**************************************************************************/
 
-    if( true ) { // DOM parser;
+    if( true ) { // parsing to document object model (DOM)
 
       std::cout << "parsing to document object model (DOM): " << fileName
           << std::endl << std::flush;
@@ -135,7 +143,7 @@ main( int argc, char** argv ) {
 
     /**************************************************************************/
 
-    if( true ) {
+    if( true ) { // parsing using simple API for XML (SAX)
 
       std::cout << "parsing by simple API for XML (SAX): " << fileName
           << std::endl << std::flush;
