@@ -26,6 +26,7 @@
  */
 
 #include "./xmlccDomParser.h" // header
+#include "./xmlccCfgConfig.h" // CFG::config
 
 /******************************************************************************/
 
@@ -50,47 +51,32 @@ Parser::~Parser( void ) {
 
 TagList* // use this method in static way; Parser::parseFile( "file.xml" );
 Parser::parseFile( Str fileName ) {
-
-  TagList* tagList = new TagList( 999 ); // TODO read and set by xmlcc.xml
-
-  try { // try everything .. like chicken's road rash ~8>
-
+  TagList* tagList = new TagList( 999 );
+// TODO read and set by xmlcc.xml - commented lines are recursive :'-(
+//  CFG::Config config;
+//  int memoryPreallocation = config.getConfigParserMemoryPreallocation( );
+//  TagList* tagList = new TagList( memoryPreallocation );
+  try { // try everything .. or recover
     SYS::XmlParser* xmlParser = new SYS::XmlParser( new Handler( tagList ) );
-
     xmlParser->parseFile( fileName );
-
     delete xmlParser; // deletes in SYS::XmlParser the set DOM::Handler* too
-
     tagList->opt( ); // optimize memory
-
   } catch( SYS::Failure& f ) {
-
     Str msg = "XMLCC::DOM::Parser::parseFile - ";
     throw SYS::Failure( msg.append( f.declare( ) ) );
-
   } catch( SYS::Error& e ) {
-
     Str msg = "XMLCC::DOM::Parser::parseFile - ";
     throw SYS::Error( msg.append( e.declare( ) ) );
-
   } catch( SYS::Exception& e ) {
-
     Str msg = "XMLCC::DOM::Parser::parseFile - ";
     throw SYS::Exception( msg.append( e.declare( ) ) );
-
   } catch( std::exception& e ) {
-
     throw SYS::Exception(
       "XMLCC::DOM::Parser::parseFile - std::exception caught!" );
-
   } catch( ... ) {
-
     throw SYS::Exception( "XMLCC::DOM::Parser::parseFile - unknown caught!" );
-
   } // try
-
   return tagList;
-
 } // Parser::parse
 
 /******************************************************************************/

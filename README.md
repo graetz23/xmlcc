@@ -45,6 +45,15 @@ CHANGELOG
 XMLCC is in version 1.00 20150101 Amara Faith:
 
 2015XXXX version 1.XX :
+- changed Makefile from subversion (svn) to git
+- added search() methods to DOM::Controller; searching up to seven hierarchies
+- CFG::Config class
+ - first attempt for getting information from config DOM tree
+ - implemented getters for section Config, Info, and System
+- TEST::Test class
+ - added config file reader
+ - implemented reading boolean values for test run
+- SYS::Exception removed the "SYS::Excpetion::" water marking
 
 20150101 version 1.00 :
 - Release of version 1.00

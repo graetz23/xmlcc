@@ -800,6 +800,82 @@ Controller::getStrOfValueOfAttribute( Node* node, Str strAttribute ) {
 
 /******************************************************************************/
 
+Node* // search CURRENT hierarchy; return Node* or null
+Controller::search( Node* xml, Str tagName ) {
+  Node* son = 0;
+  if( xml == 0 )
+    throw SYS::Failure( "DOM::Controller::search - given node is null!" );
+  int n = 0;
+  bool isSearching = true;
+  int noOfSons = xml->getNoOfNodes( );
+  while( isSearching && ( n < noOfSons ) ) {
+    Node* current = xml->getNode( n );
+    Str nameCurrent = _xmlTool.getTagName( current->getStr( ) );
+    if( nameCurrent.compare( tagName ) == 0 ) {
+      isSearching = false;
+      son = current;
+    } // if found
+    n++;
+  } // while isSearching
+  return son;
+} // Controller::search
+
+Node* // TWO hierarchies; not null
+Controller::search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2 ) {
+  return search( search( xml, tagNameHierarchy1 ), tagNameHierarchy2 );
+} // Controller::search
+
+Node* // THREE hierarchies; not null
+Controller::search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+    Str tagNameHierarchy3 ) {
+  return search( search( search( xml, tagNameHierarchy1 ), tagNameHierarchy2 ),
+    tagNameHierarchy3 );
+}
+
+Node* // FOUR hierarchies; not null
+Controller::search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+    Str tagNameHierarchy3, Str tagNameHierarchy4 ) {
+  return search(
+    search( search( search( xml, tagNameHierarchy1 ), tagNameHierarchy2 ),
+      tagNameHierarchy3 ), tagNameHierarchy4 );
+} // Controller::search
+
+Node*  // FIVE hierarchies; not null
+Controller::search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+    Str tagNameHierarchy3, Str tagNameHierarchy4, Str tagNameHierarchy5 ) {
+  return search(
+    search(
+      search( search( search( xml, tagNameHierarchy1 ), tagNameHierarchy2 ),
+        tagNameHierarchy3 ), tagNameHierarchy4 ), tagNameHierarchy5 );
+} // Controller::search
+
+Node* // SIX hierarchies; not null
+Controller::search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+    Str tagNameHierarchy3, Str tagNameHierarchy4, Str tagNameHierarchy5,
+    Str tagNameHierarchy6 ) {
+  return search(
+    search(
+      search(
+        search( search( search( xml, tagNameHierarchy1 ), tagNameHierarchy2 ),
+          tagNameHierarchy3 ), tagNameHierarchy4 ), tagNameHierarchy5 ),
+    tagNameHierarchy6 );
+} // Controller::search
+
+Node* // SEVEN hierarchies; not null
+Controller::search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+    Str tagNameHierarchy3, Str tagNameHierarchy4, Str tagNameHierarchy5,
+    Str tagNameHierarchy6, Str tagNameHierarchy7 ) {
+  return search(
+    search(
+      search(
+        search(
+          search( search( search( xml, tagNameHierarchy1 ), tagNameHierarchy2 ),
+            tagNameHierarchy3 ), tagNameHierarchy4 ), tagNameHierarchy5 ),
+      tagNameHierarchy6 ), tagNameHierarchy7 );
+} // Controller::search
+
+/******************************************************************************/
+
 void // print DOM tree to std::cout; without '\n'@end
 Controller::view( Node* node ) {
   if( node == 0 )

@@ -37,12 +37,12 @@ namespace SYS {
 
 // constructor
 Exception::Exception( void ) {
-  mark( );
+  // mark( );
 } // Exception::Exception
 
 // constructor overloaded
 Exception::Exception( Str message ) : _message( message ) { 
-  mark( );
+  // mark( );
 } // Exception::Exception
 
 // use __LINE__ @ lineNo
@@ -53,7 +53,7 @@ Exception::Exception( Str message, int lineNo ) {
   _message.append( lineNoStream.str( ) );
   _message.append( " " );
   _message.append( message );
-  mark( );
+  // mark( );
 } // Exception::Exception
 
 // use __FILE__ @ fileName
@@ -62,7 +62,7 @@ Exception::Exception( Str message, char* fileName ) {
   _message.append( fileName );
   _message.append( " " );
   _message.append( message );
-  mark( );
+  // mark( );
 } // Exception::Exception
 
 // use __FILE__ @ fileName and __LINE__ @ lineNo
@@ -75,7 +75,7 @@ Exception::Exception( Str message, char* fileName, int lineNo ) {
   _message.append( lineNoStream.str( ) );
   _message.append( " - " );
   _message.append( message );
-  mark( );
+  // mark( );
 } // Exception::Exception
 
 // destructor

@@ -26,6 +26,7 @@
  */
 
 #include "./xmlccTest.h" // for throwing XMLCC::Error
+#include "./xmlccCfgConfig.h" // CFG::Config
 
 /******************************************************************************/
 
@@ -42,13 +43,28 @@ run( void ) {
 
     SYS::UnitFrame unitFrame; // unit test frame work; register unit tests
 
-    unitFrame.add( new TEST::List( "XMLCC::SYS::List" ) );
-    unitFrame.add( new TEST::StrTool( "XMLCC::SYS::StrTool" ) );
-    unitFrame.add( new TEST::XmlTool( "XMLCC::SYS::XmlTool" ) );
-    // unitFrame.add( new TEST::XmlParser( "XMLCC::SYS::XmlParser" ) );
-    // unitFrame.add( new TEST::Tokenizer( "XMLCC::DOM::Tokenizer" ) );
-    unitFrame.add( new TEST::Controller( "XMLCC::DOM::Controller" ) );
-    // unitFrame.add( new TEST::Xmlcc( "XMLCC::" ) );
+    CFG::Config config;
+
+    if( config.getSystemTestSysList( ) )
+      unitFrame.add( new TEST::List( "XMLCC::SYS::List" ) );
+
+    if( config.getSystemTestSysStrTool( ) )
+      unitFrame.add( new TEST::StrTool( "XMLCC::SYS::StrTool" ) );
+
+    if( config.getSystemTestSysXmlTool( ) )
+      unitFrame.add( new TEST::XmlTool( "XMLCC::SYS::XmlTool" ) );
+
+//    if( config.getSystemTestSysXmlParser( ) )
+//      unitFrame.add( new TEST::XmlParser( "XMLCC::SYS::XmlParser" ) );
+
+//    if( config.getSystemTestDomTokenizer( ) )
+//      unitFrame.add( new TEST::Tokenizer( "XMLCC::DOM::Tokenizer" ) );
+
+    if( config.getSystemTestDomController( ) )
+      unitFrame.add( new TEST::Controller( "XMLCC::DOM::Controller" ) );
+
+//    if( config.getSystemTestXmlcc( ) )
+//      unitFrame.add( new TEST::Xmlcc( "XMLCC::" ) );
 
     unitFrame.run( ); // run all unit test that were registered
 

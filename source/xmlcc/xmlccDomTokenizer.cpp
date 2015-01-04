@@ -48,6 +48,10 @@ Tokenizer::~Tokenizer( void ) {
 Node* /// build object model tree
 Tokenizer::buildDomTreeOfTagList( TagList* tagList ) {
 
+  if( tagList == 0 )
+    throw SYS::Failure(
+      "DOM::Tokenizer::buildDomTreeOfTagList - TagList* is null!" );
+
   Node* root = 0; // the root node; kept in mind
   Node* node = 0; // currently handled node
   Node* hierNode = 0; // remember the last hierarchy for call back
@@ -360,8 +364,7 @@ Tokenizer::convert2NodeComplete( Str line ) {
   size_t length = line.size( );
 
   if( length < 1 )
-    throw SYS::Failure(
-      "Tokenizer::convert2NodeComplete - line has no char" );
+    throw SYS::Failure( "Tokenizer::convert2NodeComplete - line has no char" );
 
   char a = line[ 0 ];
 

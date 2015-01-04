@@ -59,7 +59,7 @@ Core::parseFile2TagList( Str fileName ) {
   } catch( SYS::Failure& f ) {
     if( tagList != 0 )
       delete tagList;
-    f.report( ); // file not found, file empty, etc ..
+    throw f; // file not found, file empty, etc ..
   } catch( SYS::Error& e ) {
     throw e; // throw again
   } catch( SYS::Exception& e ) {
@@ -88,13 +88,14 @@ Core::parseFile2DomTree( Str fileName ) {
     tagList = parseFile2TagList( fileName );
     // map any XML tag structure to DOM tree; always Root* returned
     root = (Root*)buildDomTreeOfTagList( tagList );
-    delete tagList;
+    if( tagList != 0 )
+      delete tagList;
   } catch( SYS::Failure& f ) {
     if( tagList != 0 )
       delete tagList;
     if( root != 0 )
       delete root;
-    f.report( ); // file not found, file empty, etc ..
+    throw f; // file not found, file empty, etc ..
   } catch( SYS::Error& e ) {
     throw e; // throw again
   } catch( SYS::Exception& e ) {
@@ -123,7 +124,7 @@ Core::buildDomTreeOfTagList( TagList* tagList ) {
   } catch( SYS::Failure& f ) {
     if( node != 0 )
       delete node;
-    f.report( ); // file not found, file empty, etc ..
+    throw f; // file not found, file empty, etc ..
   } catch( SYS::Error& e ) {
     throw e; // throw again
   } catch( SYS::Exception& e ) {

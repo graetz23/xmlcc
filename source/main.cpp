@@ -63,9 +63,15 @@ main( int argc, char** argv ) {
 
     if( true ) { // generating the actual config file for XMLCC
 
-      std::cout << "writing config to file .. " << std::flush;
-      CFG::Config::write( CFG::Config::generate( ) ); // static methods
-      std::cout << "done!" << std::endl << std::endl << std::flush;
+      std::cout << "checking config file .. " << std::flush;
+      CFG::Config config;
+      if( config.exists( ) ) {
+        std::cout << "exists!" << std::endl << std::endl << std::flush;
+      } else {
+        std::cout << "not existing; going to generating one .. " << std::flush;
+        config.write( config.generate( ) );
+        std::cout << "done!" << std::endl << std::endl << std::flush;
+      }
 
     } // if
 
@@ -80,6 +86,7 @@ main( int argc, char** argv ) {
     if( true ) { // generating a simple web page by using DOM objects directly
 
       // example how to generate, view, and write content in XML (HTML)
+      std::cout << "generating DOM tree .. " << std::flush;
       DOM::Root* xml = 0;
       xml = new DOM::Root( "xmlcc.html", new DOM::Doctype( ),
         new DOM::Comment( "XMLCC 1.00 20150101 Amara Faith" ),
@@ -96,17 +103,20 @@ main( int argc, char** argv ) {
             new DOM::Element( "a",
               new DOM::Attribute( "href", "http://code.google.com/p/xmlcc/" ),
               new DOM::Value( "visit project page" ) ) ) ) );
+      std::cout << "done!" << std::endl << std::flush;
 
-      // std::cout << std::endl << std::flush;
-      // std::cout << xml << std::endl << std::flush; // DOM:: 2 std::cout
+//      std::cout << std::endl << std::flush;
+//      std::cout << "showing DOM tree to file .. " << std::endl << std::flush;
+//      std::cout << xml << std::endl << std::flush; // DOM:: 2 std::cout
+//      std::cout << "done!" << std::endl << std::flush;
 
-      std::cout << "Writing xmlcc's config to file .. " << std::flush;
+      std::cout << "writing DOM tree to file .. " << std::flush;
       std::fstream file; // open file
       file.open( ( (char*)( xml->getStr( ).c_str( ) ) ), std::ios::out );
       file << xml; // DOM tree 2 std::ostream
       file.close( );
       delete xml; // deletes complete DOM tree
-      std::cout << "done!" << std::endl << std::flush;
+      std::cout << "done!" << std::endl << std::endl << std::flush;
 
     } // if
 

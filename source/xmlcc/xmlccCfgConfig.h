@@ -55,15 +55,50 @@ Config {
     // Config( Str fileName ); /// constructor
     virtual ~Config( void ); /// destructor
 
+    static bool exists( void ); /// check if config file is existing
+
     static DOM::Root* generate( void ); /// generate missing configuration file
-    static void write( DOM::Root* root ); /// write configuration file to drive
+    static void write( DOM::Root* xml ); /// write configuration file to drive
     static DOM::Root* read( void ); /// read configuration file from drive
 
-    Str getConfig( Str type, Str tag, Str attribute );
+    void store( DOM::Root* xml ); /// store config file to member
+
+    /// <config><parser> .. </parser></config>
+    bool getConfigParserConsoleTalk( void ); /// get config parameter
+    bool getConfigParserCleanTag( void ); /// get config parameter
+    bool getConfigParserCleanAttributes( void ); /// get config parameter
+    bool getConfigParserCleanComments( void ); /// get config parameter
+    int getConfigParserMemoryPreallocation( void ); /// get config parameter
+
+    /// <config><tokenizer> .. </tokenizer></config>
+    bool getConfigTokenizerTalk( void ); /// get config parameter
+
+    /// <config><info> .. </info></config>
+    Str getInfoBuiltDate( void ); /// get info parameter
+    Str getInfoVersionNumber( void ); /// get info parameter
+    Str getInfoPackageName( void ); /// get info parameter
+    Str getInfoLicenseType( void ); /// get info parameter
+    Str getInfoProjectUrl( void ); /// get info parameter
+    Str getInfoUserName( void ); /// get info parameter
+    Str getInfoUserEmail( void ); /// get info parameter
+
+    /// <config><system> .. </system></config>
+    bool getSystemTestSysList( void ); /// get system parameter
+    bool getSystemTestSysStrTool( void ); /// get system parameter
+    bool getSystemTestSysXmlTool( void ); /// get system parameter
+    bool getSystemTestSysXmlParser( void ); /// get system parameter
+    bool getSystemTestDomTokenizer( void ); /// get system parameter
+    bool getSystemTestDomController( void ); /// get system parameter
+    bool getSystemTestXmlcc( void ); /// get system parameter
+    Str getSystemCData( void ); /// get system parameter
 
   private:
 
+    DOM::Root* _root; /// root node of read config file xmlcc.xml
+
     DOM::Controller _controller; /// crawling DOM's tree
+    SYS::XmlTool _xmlTool; /// convert std::string to bool, int, double, ..
+    SYS::StrTool _strTool; /// convert std::string to bool, int, double, ..
 
 };
 // class Config

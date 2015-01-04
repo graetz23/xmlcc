@@ -150,6 +150,23 @@ Controller {
 
     /**************************************************************************/
 
+    Node* search( Node* xml, Str tagName ); // CURRENT hierarchy only; not null
+    Node* search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2 ); // TWO hierarchies; not null
+    Node* search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+        Str tagNameHierarchy3 ); // THREE hierarchies; not null
+    Node* search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+        Str tagNameHierarchy3, Str tagNameHierarchy4 ); // FOUR hierarchies only; not null
+    Node* search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+        Str tagNameHierarchy3, Str tagNameHierarchy4, Str tagNameHierarchy5 ); // FIVE hierarchies only; not null
+    Node* search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+        Str tagNameHierarchy3, Str tagNameHierarchy4, Str tagNameHierarchy5,
+        Str tagNameHierarchy6 ); // SIX hierarchies; not null
+    Node* search( Node* xml, Str tagNameHierarchy1, Str tagNameHierarchy2,
+        Str tagNameHierarchy3, Str tagNameHierarchy4, Str tagNameHierarchy5,
+        Str tagNameHierarchy6, Str tagNameHierarchy7 ); // SEVEN hierarchies; not null
+
+    /**************************************************************************/
+
     void view( Node* node ); /// print DOM tree to std::cout; without '\n'@end
 
     /**************************************************************************/
@@ -175,6 +192,7 @@ Controller {
     /**************************************************************************/
 
     SYS::StrTool _strTool; /// std::string manipulation
+    SYS::XmlTool _xmlTool; /// XML tag manipulation
 };
 // class Controller
 
