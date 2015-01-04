@@ -39,7 +39,7 @@ LDFLAGS=
 
 SRCDIR=source
 
-SRCCNTRL=svn
+SRCCNTRL=git
 
 # like to have that stuff static while developing ~8>
 SOURCES= \
@@ -98,15 +98,16 @@ clean:
 	rm -f $(OBJECTS)
 	
 update:
-	$(SRCCNTRL) update
+	$(SRCCNTRL) pull
   
 commit:
 	$(SRCCNTRL) commit
+	$(SRCCNTRL) push
 
 # clean out, make an update, and then build
 refresh:
 	make clean
-	$(SRCCNTRL) update
+	make update
 	date
 	make all
 	date
