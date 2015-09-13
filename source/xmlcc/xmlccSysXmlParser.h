@@ -57,7 +57,10 @@ XmlParser {
     XmlParser( XmlHandler* xmlHandler ); /// constructor
     virtual ~XmlParser( void ); /// destructor
 
-    void parseFile( Str fileName ); /// reads file and returns root object
+    void setSizeMemAlloc( int sizeMemAlloc ); // size of preallocation; .. 100k
+    void setDoFormatTags( bool doFormatTags ); // clean malformed XML tags
+
+    void parse( Str fileName ); /// reads file and returns root object
 
   private:
 
@@ -83,8 +86,8 @@ XmlParser {
     long _spikeOpened; /// count opening spikes
     long _spikeClosed; /// count closing spikes
 
-    int _cfgSizePreMemory; /// cfg of XMLCC; pre size of smart pointer list
-    bool _cfgDoFormatTags; /// cfg of XMLCC; do format malformed tags or not
+    int _sizeMemAlloc; /// cfg of XMLCC; pre size of smart pointer list
+    bool _doFormatTags; /// cfg of XMLCC; do format malformed tags or not
 
     StrTool* _strTool; /// tool class for std::string manipulations
     XmlTool* _xmlTool; /// tool class for XML tag & text manipulations

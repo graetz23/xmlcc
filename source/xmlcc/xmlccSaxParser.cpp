@@ -82,7 +82,7 @@ Parser::parseFile( Str fileName ) {
 
     SYS::XmlParser* xmlParser = new SYS::XmlParser( _handler );
 
-    xmlParser->parseFile( fileName );
+    xmlParser->parse( fileName );
 
     delete xmlParser; // deletes XML handler too
 

@@ -58,7 +58,7 @@ Parser::parseFile( Str fileName ) {
 //  TagList* tagList = new TagList( memoryPreallocation );
   try { // try everything .. or recover
     SYS::XmlParser* xmlParser = new SYS::XmlParser( new Handler( tagList ) );
-    xmlParser->parseFile( fileName );
+    xmlParser->parse( fileName );
     delete xmlParser; // deletes in SYS::XmlParser the set DOM::Handler* too
     tagList->opt( ); // optimize memory
   } catch( SYS::Failure& f ) {

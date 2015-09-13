@@ -61,8 +61,6 @@ Config {
     static void write( DOM::Root* xml ); /// write configuration file to drive
     static DOM::Root* read( void ); /// read configuration file from drive
 
-    void store( DOM::Root* xml ); /// store config file to member
-
     /// <config><parser> .. </parser></config>
     bool getConfigParserConsoleTalk( void ); /// get config parameter
     bool getConfigParserCleanTag( void ); /// get config parameter

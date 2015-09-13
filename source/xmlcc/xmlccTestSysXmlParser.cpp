@@ -56,7 +56,7 @@ XmlParser::run( void ) {
 
   SYS::XmlParser* xmlParser = new SYS::XmlParser( new SYS::XmlHandler( true ) );
 
-  xmlParser->parseFile( "xmlccMalformed.xml" ); // each XML tag or text is print out
+  xmlParser->parse( "xmlccMalformed.xml" ); // each XML tag or text is print out
 
   delete xmlParser; // deletes the XmlHandler object too ..
 

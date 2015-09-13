@@ -37,11 +37,13 @@ namespace CFG {
 
 /// constructor
 Config::Config( void ) {
-  _root = 0;
+  _root = read( ); // one strategy, take DOM tree to mem
 } // Config
 
 /// destructor
 Config::~Config( void ) {
+  if( _root != 0 )
+    delete _root; // delete DOM tree if read; always
 } // ~Config
 
 /******************************************************************************/
@@ -233,15 +235,6 @@ Config::read( void ) {
   return xml;
 
 } // Config::read
-
-/******************************************************************************/
-
-void // store config file to member
-Config::store( DOM::Root* xml ) {
-  if( _root != 0 )
-    delete _root;
-  _root = xml;
-} // Config::store
 
 /******************************************************************************/
 

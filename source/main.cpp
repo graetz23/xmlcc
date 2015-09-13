@@ -71,7 +71,7 @@ main( int argc, char** argv ) {
         std::cout << "not existing; going to generating one .. " << std::flush;
         config.write( config.generate( ) );
         std::cout << "done!" << std::endl << std::endl << std::flush;
-      }
+      } // if
 
     } // if
 
