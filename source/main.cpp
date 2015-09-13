@@ -101,7 +101,8 @@ main( int argc, char** argv ) {
             new DOM::Element( "b", new DOM::Value( "WWW" ) ),
             new DOM::Value( "from XMLCC" ), new DOM::Element( "br" ),
             new DOM::Element( "a",
-              new DOM::Attribute( "href", "http://code.google.com/p/xmlcc/" ),
+              new DOM::Attribute( "href",
+                "https://github.com/cscheiblich/xmlcc/" ),
               new DOM::Value( "visit project page" ) ) ) ) );
       std::cout << "done!" << std::endl << std::flush;
 

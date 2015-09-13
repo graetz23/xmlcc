@@ -54,6 +54,7 @@ XMLCC is in version 1.00 20150101 Amara Faith:
  - added config file reader
  - implemented reading boolean values for test run
 - SYS::Exception removed the "SYS::Excpetion::" water marking
+ - added / updated comments & minor changes in SYS::List<T>() template class 
 
 20150101 version 1.00 :
 - Release of version 1.00

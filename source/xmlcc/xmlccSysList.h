@@ -30,17 +30,19 @@
  * remarks:
  * You can use this list for any kind of data; numbers, objects, pointers ...
  * It is not allocating memory until the first data is added using the
- * add( T data ) function. The allocated memory depends on the given
+ * add( T data ) method. The allocated memory depends on the given
  * extension size, manifested by the member _ext. You can use the overloaded
  * constructor to manipulated this member from the start on. To get data, use
- * get( pos ) or the arr( void ) handing back an array of the added data.
- * In second case, do not forget to delete the array by delete [ ] dataArr
- * outside the list and to delete the list itself.
+ * get( pos ) method for a single date or the arr( void ) method for all data;
+ * the arr( void ) method is handing back a pointer array of the added data.
+ * The List<T> is not deleting any data, e.g. stored objects. It is only
+ * deleting itself when ~List<T>( void ) is called by delete myList.
  *******************************************************************************
  * CHANGE LOG
  * 2006 created and verified until 0.80
  * 20141218 0.80 added fst and lst methods for getting first and last data item
  * 20141224 1.00 cleaned out SYS:List<T> and implemented unit tests SYS::TEST::
+ * 20150913 1.01 added and updated comments, changed in par() floor() 2 ceil().
  *
  ******************************************************************************/
 
@@ -59,7 +61,7 @@ namespace XMLCC {
 
 namespace SYS {
 
-#define _XMLCC_VERSION_SYS_List_ 1.00 // 20150101
+#define _XMLCC_VERSION_SYS_List_ 1.01 // 20150913
 #ifdef _XMLCC_DEBUG_
 #define _XMLCC_DEBUG_SYS_List_
 #endif
@@ -108,11 +110,11 @@ class List { // use this to add any data in an array
 template< class T > // constructor setting initial memory to 12 fields
 List< T >::List( ) {
 
-  _ext = 12; // memory optimzed
-  _pos = 0;
-  _div = 4;
-  _size = 0;
-  _data = 0;
+  _ext = 12; // memory optimized; reserve 12 places while first one is stored.
+  _div = 4; // divider for the memory extension while 13th is stored => 14 total
+  _pos = 0; // start position of the internal array; DO NOT CHANGE(!)
+  _size = 0; // the current size of the array: 0, 12, 24, 36, 48, 60, 75, 94, ..
+  _data = 0; // the pointer to (or array of) the stored data
 
 } // List<T>::List
 
@@ -122,13 +124,16 @@ template< class T > // constructor setting initial memory to given integer ext
 List< T >::List( int ext ) {
 
   if( ext < 1 )
-    ext = 1; // 20081206 fix user failure instead of exception
+    ext = 1; // 20081206 fix user failure instead of throwing an exception
 
-  _ext = ext;
-  _pos = 0;
-  _div = 4;
-  _size = 0;
-  _data = 0;
+  if( ext > 100000 )
+    ext = 100000; // 20150913 fix user failure instead of throwing an exception
+
+  _ext = ext; // set the size of the extension, between 1 and 100000
+  _pos = 0; // start position of the internal array; DO NOT CHANGE(!)
+  _div = 4; // divider for the memory extension while 13th is stored => 14 total
+  _size = 0; // the current size of the array: 0, ceil( size / div ) > ext, ..
+  _data = 0; // the pointer to (or array of) the stored data
 
 } // List<T>::List
 
@@ -138,19 +143,22 @@ template< class T > // constructor setting initial memory and divisor
 List< T >::List( int ext, int div ) {
 
   if( ext < 1 )
-    ext = 1; // 20081206 fix user failure instead of exception
+    ext = 1; // 20081206 fix user failure instead of throwing an exception
+
+  if( ext > 100000 )
+    ext = 100000; // 20150913 fix user failure instead of throwing an exception
 
   if( div < 1 )
-    div = 1; // 20100803 only use a qualified divisor
+    div = 1; // 20100803 only use a qualified divisor instead of throwing excep.
 
   if( div > 12 ) // 20100803 do not allow a divisor > 12; does not make sense
-    div = 12;
+    div = 12; // the smaller the divisor the fast and more memory hungry it gets
 
-  _ext = ext;
-  _pos = 0;
-  _div = div;
-  _size = 0;
-  _data = 0;
+  _ext = ext; // set the size of the extension, between 1 and 100000
+  _pos = 0; // start position of the internal array; DO NOT CHANGE(!)
+  _div = div; // set an own divisor between 1 and 12; some code magic here.
+  _size = 0; // the current size of the array: 0, ext, ceil( size / div ).
+  _data = 0; // the pointer to (or array of) the stored data
 
 } // List<T>::List
 
@@ -159,7 +167,7 @@ List< T >::List( int ext, int div ) {
 template< class T > // destructor
 List< T >::~List( void ) {
 
-  delete[ ] _data;
+  delete[ ] _data; // stored objects are never deleted; delete those separately
 
 } // List<T>::~List
 
@@ -168,7 +176,7 @@ List< T >::~List( void ) {
 template< class T > // return current size of smart list
 int List< T >::size( void ) {
 
-  return _pos;
+  return _pos; // current size of List by returning the position of last date
 
 } // List<T>::size
 
@@ -178,10 +186,10 @@ template< class T > // add an element to the end of smart list
 void List< T >::add( T data ) {
 
   if( _pos == _size )
-    ext( _ext );
+    ext( _ext ); // extend the member array if end is reached
 
-  _data[ _pos ] = data;
-  _pos++;
+  _data[ _pos ] = data; // store the data at current position
+  _pos++; // prepare for next data by getting to next position
 
 } // List<T>::add
 
@@ -232,13 +240,13 @@ template< class T > // return an element from a given position
 T List< T >::get( int pos ) {
 
   if( _pos == 0 )
-    throw Error( "List<T>::get - not data set yet; array is empty" );
+    throw Error( "List<T>::get - no data set yet; internal array is empty" );
 
   if( pos >= _pos )
-    throw Error( "List<T>::get - pos equal or greater than size of list" );
+    throw Error( "List<T>::get - pos is equal or greater than size of list" );
 
   if( pos < 0 )
-    throw Error( "List<T>::get - pos smaller than zero" );
+    throw Error( "List<T>::get - pos is smaller than zero" );
 
   T data = _data[ pos ];
 
@@ -286,7 +294,8 @@ List< T >::arr( void ) {
 template< class T > // optimize the parameters of the smart list
 void List< T >::par( void ) {
 
-  int ext = (int)( floor( (double)( _size ) / (double)( _div ) ) ); // extension
+//int ext = (int)( floor( (double)( _size ) / (double)( _div ) ) ); // extension
+  int ext = (int)( ceil( (double)( _size ) / (double)( _div ) ) ); // extension
 
   if( ext > _ext ) // as long as ext is greater than internal _ext
     _ext = ext; // speed up faster by using ext
@@ -410,7 +419,7 @@ typedef List< Str > StrList;       // namespace & template typedef
 
 /******************************************************************************/
 
-}// namespace SYS
+} // namespace SYS
 
 /****************************************************************************/
 
