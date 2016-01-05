@@ -20,7 +20,7 @@ LICENSE
 -------
 XMLCC is distributed under the MIT License (MIT); this file is part of.
 
-Copyright (c) 2008-2015 Christian Scheiblich (cscheiblich@gmail.com)
+Copyright (c) 2008-2016 Christian Scheiblich (cscheiblich@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -42,9 +42,11 @@ THE SOFTWARE.
 
 CHANGELOG
 ---------
-XMLCC is in version 1.00 20150101 Amara Faith:
+XMLCC is in version 1.01 20150106 Amara Faith:
 
-2015XXXX version 1.XX :
+2016XXXX version 1.XX :
+
+20160106 version 1.01 :
 - changed Makefile from subversion (svn) to git
 - added search() methods to DOM::Controller; searching up to seven hierarchies
 - CFG::Config class
@@ -54,7 +56,8 @@ XMLCC is in version 1.00 20150101 Amara Faith:
  - added config file reader
  - implemented reading boolean values for test run
 - SYS::Exception removed the "SYS::Excpetion::" water marking
- - added / updated comments & minor changes in SYS::List<T>() template class 
+ - added / updated comments & minor changes in SYS::List<T>() template class
+- Updated Copyright by the years 2008-2016 
 
 20150101 version 1.00 :
 - Release of version 1.00
