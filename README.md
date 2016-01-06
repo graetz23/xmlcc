@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/cscheiblich/xmlcc.svg?branch=master)](https://travis-ci.org/cscheiblich/xmlcc) on travis-ci.com
 XMLCC C++ XML library for SAX & DOM
 ===================================
 A C++ XML library for SAX & DOM.
