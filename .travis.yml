@@ -5,5 +5,4 @@ compiler:
   - gcc
 os:
   - linux
-  - osx
 script: make
