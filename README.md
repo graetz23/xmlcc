@@ -1,7 +1,9 @@
+XMLCC - C++ Extensible Markup Language (XML) SAX & DOM library
+==============================================================
+
 [![Build Status](https://travis-ci.org/cscheiblich/xmlcc.svg?branch=master)](https://travis-ci.org/cscheiblich/xmlcc) on travis-ci.com
-XMLCC C++ XML library for SAX & DOM
-===================================
-A C++ XML library for SAX & DOM.
+
+An object-oriented C++ XML library implementing a kind of SAX and a DOM tree.
 
 README
 ------
@@ -41,8 +43,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-CHANGELOG
----------
+CHANGE LOG
+----------
 XMLCC is in version 1.01 20150106 Amara Faith:
 
 2016XXXX version 1.XX :
