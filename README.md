@@ -23,7 +23,7 @@ LICENSE
 -------
 XMLCC is distributed under the MIT License (MIT); this file is part of.
 
-Copyright (c) 2008-2016 Christian Scheiblich (cscheiblich@gmail.com)
+Copyright (c) 2008-2017 Christian Scheiblich (cscheiblich@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -60,7 +60,7 @@ XMLCC is in version 1.01 20150106 Amara Faith:
  - implemented reading boolean values for test run
 - SYS::Exception removed the "SYS::Excpetion::" water marking
  - added / updated comments & minor changes in SYS::List<T>() template class
-- Updated Copyright by the years 2008-2016 
+- Updated Copyright by the years 2008-2017 
 
 20150101 version 1.00 :
 - Release of version 1.00
