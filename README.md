@@ -1,12 +1,11 @@
-XMLCC - C++ Extensible Markup Language (XML) SAX & DOM library
-==============================================================
+##XMLCC - C++ Extensible Markup Language (XML) SAX & DOM library##
 
 [![Build Status](https://travis-ci.org/cscheiblich/xmlcc.svg?branch=master)](https://travis-ci.org/cscheiblich/xmlcc) on travis-ci.com
 
 An object-oriented C++ XML library implementing a kind of SAX and a DOM tree.
 
-README
-------
+###README###
+
 XMLCC is a C++ library for the extensible markup language (XML). It is strongly
 object-oriented and based on software design patterns for generating, searching,
 and parsing even malformed XML files.
@@ -19,11 +18,11 @@ This library is - yet - a non validating, not speed optimized, and explicit not
 dealing with file encodings; those are overcome by C++'s local standard template
 libraries (STL). It just provides an easy access to XML files.
 
-LICENSE
--------
-XMLCC is distributed under the MIT License (MIT); this file is part of.
+###LICENSE###
 
-Copyright (c) 2008-2018 Christian Scheiblich (cscheiblich@gmail.com)
+**XMLCC is distributed under the MIT License (MIT); this file is part of.**
+
+**Copyright (c) 2008-2018 Christian Scheiblich (cscheiblich@gmail.com)**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -43,9 +42,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-CHANGE LOG
-----------
-XMLCC is in version 1.01 20150106 Amara Faith:
+###CHANGE LOG###
+
+**XMLCC is in version 1.01 20150106 Amara Faith:**
 
 2016XXXX version 1.XX :
 
