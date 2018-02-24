@@ -1,4 +1,4 @@
-##LICENSE##
+## LICENSE ##
 
 **XMLCC is distributed under the MIT License (MIT); this file is part of.**
 
