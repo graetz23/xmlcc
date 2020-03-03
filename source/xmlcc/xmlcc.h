@@ -1,6 +1,6 @@
-/** 
+/**
  * @file xmlcc.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * XMLCC is a C++ library for the extensible markup language (XML). It is
  * strongly object-oriented and based on software design patterns for
@@ -13,7 +13,7 @@
  *
  * XMLCC is distributed under the MIT License (MIT); this file is part of.
  *
- * Copyright (c) 2008-2018 Christian Scheiblich (cscheiblich@gmail.com)
+ * Copyright (c) 2008-2020 Christian (graetz23@gmail.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

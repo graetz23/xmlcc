@@ -1,10 +1,10 @@
-/** 
+/**
  * @file xmlccCfgConfig.cpp
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * XMLCC is distributed under the MIT License (MIT); this file is part of.
  *
- * Copyright (c) 2008-2018 Christian Scheiblich (cscheiblich@gmail.com)
+ * Copyright (c) 2008-2020 Christian (graetz23@gmail.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -103,10 +103,10 @@ Config::generate( void ) {
                 new DOM::Attribute( "type", "The MIT License (MIT)" ) ),
               new DOM::Element( "xmlcc:project",
                 new DOM::Attribute( "url",
-                  "https://github.com/cscheiblich/xmlcc/" ) ),
+                  "https://github.com/graetz23/xmlcc/" ) ),
               new DOM::Element( "xmlcc:user",
-                new DOM::Attribute( "name", "Christian Scheiblich" ),
-                new DOM::Attribute( "email", "cscheiblich@gmail.com" ) ) ),
+                new DOM::Attribute( "name", "Christian" ),
+                new DOM::Attribute( "email", "graetz23@gmail.com" ) ) ),
             new DOM::Comment( "library system; run unit tests, etc." ),
             new DOM::Element( "xmlcc:system",
               new DOM::Comment( "unit test framework configuration" ),

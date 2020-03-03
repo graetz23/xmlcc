@@ -1,10 +1,10 @@
-/** 
+/**
  * @file main.cpp
- * @author Christian Scheiblich
+ * @author Christian
  *
  * XMLCC is distributed under the MIT License (MIT); this file is part of.
  *
- * Copyright (c) 2008-2018 Christian Scheiblich (cscheiblich@gmail.com)
+ * Copyright (c) 2008-2020 Christian (graetz23@gmail.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -102,7 +102,7 @@ main( int argc, char** argv ) {
             new DOM::Value( "from XMLCC" ), new DOM::Element( "br" ),
             new DOM::Element( "a",
               new DOM::Attribute( "href",
-                "https://github.com/cscheiblich/xmlcc/" ),
+                "https://github.com/graetz23/xmlcc/" ),
               new DOM::Value( "visit project page" ) ) ) ) );
       std::cout << "done!" << std::endl << std::flush;
 
