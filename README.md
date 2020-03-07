@@ -1,22 +1,24 @@
 ## XMLCC
 
-### C++ Extensible Markup Language (XML) SAX & DOM library
+### C++ library for generating, reading, and writing XML
 
 **The continuous integration** [![Build Status](https://travis-ci.org/cscheiblich/xmlcc.svg?branch=master)](https://travis-ci.org/cscheiblich/xmlcc) **on travis-ci.com**
 
-An object-oriented C++ library for parsing, modifying, creating, and writing XML by implementing a kind of SAX interface and a DOM tree.
-
 ### Introduction
 
-XMLCC is a C++ library for the extensible markup language (XML). It is strongly
-object-oriented and based on [software design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) for generating, searching,
-and parsing even *badly malformed* XML files.
+XMLCC is an object-oriented C++ library for parsing, modifying, creating, and writing  the extensible markup language (XML) by implementing a kind of SAX interface and some kind of DOM tree. It is strongly object-oriented and based on [software design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) for generating, searching, and parsing even *badly malformed* XML files.
 
-Two parsers are available: a simple API for XML (SAX) parser for an event based parsing and a document object model (DOM) parser generating an object model tree. The library provides an easy access to XML files.
+Two parsers are available: a simple API for XML (SAX) parser for an event based parsing and a document object model (DOM) parser generating an object model tree.
+
+The library provides an easy access to XML files.
 
 ### Remarks
 
-This library is - yet - a non validating, not -- really -- speed optimized, and explicit not dealing with file encodings; but those are overcome by C++'s local standard template libraries (STL). Therewith, the library is written in ANSI / C++ and allows for a platform independency.
+This library is - yet - a non validating, not - really - speed optimized for very large files, and explicit not dealing with file encodings.
+
+For normal sized XMLs - arond 10 Mega Byte - xmlCC does a very fine job. However, if XML files get larger, there should be a different strategy for parsing. Currently xmlCC read char by char which allows for throwing an exception exactely at line and char number.
+
+File encondings are overcome by C++'s local standard template libraries (STL). Futhermore xmlCC is written in ANSI / C++, so it has a true platform independency.
 
 ### How To
 
