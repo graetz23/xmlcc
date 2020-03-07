@@ -4,7 +4,7 @@
 
 **The continuous integration** [![Build Status](https://travis-ci.org/cscheiblich/xmlcc.svg?branch=master)](https://travis-ci.org/cscheiblich/xmlcc) **on travis-ci.com**
 
-An object-oriented C++ XML library implementing a kind of SAX and a DOM tree.
+An object-oriented C++ library for parsing, modifying, creating, and writing XML by implementing a kind of SAX interface and a DOM tree.
 
 ### Introduction
 
