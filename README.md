@@ -61,13 +61,15 @@ file.open( ( (char*)( xml->getStr( ).c_str( ) ) ), std::ios::out ); // some name
 file << xml; // overloaded operator; the DOM tree goes std::ostream
 file.close( );
 ```
-And deleting all generated objects again:
+The written file [looks like this](https://github.com/graetz23/xmlcc/tree/master/XMLCC/xmlcc.html)!
+
+Deleting all generated objects of the DOM tree:
 
 ```
 delete xml; // deletes recursively the complete DOM tree
 ```
 
-Parsing an XML file to XMLCC's DOM tree:
+and parsing an XML file to XMLCC's DOM tree:
 
 ```
 XMLCC::DOM::Core core; // keeping methods for parsing 2 DOM tree

@@ -1,2 +1,5 @@
+*.o
+*.a
+*.exe
 /Debug/
 /Release/
