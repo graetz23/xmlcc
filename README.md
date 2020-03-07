@@ -28,7 +28,7 @@ Just clone the repository and build it for some *unix or GNU/Linux* machines by:
 
 Some **example using xmlcc** for **generating** simple **HTML**:
 
-```
+```C++
 DOM::Root* xml = 0; // null pointer
 xml = new DOM::Root( "xmlcc.html", new DOM::Doctype( ), // used for file name
   new DOM::Comment( "XMLCC 1.01 20200307 Amara Faith" ),
@@ -54,7 +54,7 @@ xml = new DOM::Root( "xmlcc.html", new DOM::Doctype( ), // used for file name
 
 Now **writing** the xml **to file**
 
-```
+```C++
 std::cout << "writing DOM tree to file .. " << std::flush;
 std::fstream file; // open file
 file.open( ( (char*)( xml->getStr( ).c_str( ) ) ), std::ios::out ); // some name
@@ -65,13 +65,13 @@ The written file [looks like this](https://github.com/graetz23/xmlcc/tree/master
 
 Deleting all generated objects of the DOM tree:
 
-```
+```C++
 delete xml; // deletes recursively the complete DOM tree
 ```
 
 and parsing an XML file to XMLCC's DOM tree:
 
-```
+```C++
 XMLCC::DOM::Core core; // keeping methods for parsing 2 DOM tree
 XMLCC::DOM::Root* root = core.parseFile2DomTree( fileName ); // root of DOM tree
 if( root != 0 ) {
