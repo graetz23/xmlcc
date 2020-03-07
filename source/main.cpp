@@ -89,7 +89,7 @@ main( int argc, char** argv ) {
       std::cout << "generating DOM tree .. " << std::flush;
       DOM::Root* xml = 0;
       xml = new DOM::Root( "xmlcc.html", new DOM::Doctype( ),
-        new DOM::Comment( "XMLCC 1.00 20150101 Amara Faith" ),
+        new DOM::Comment( "XMLCC 1.01 20200307 Amara Faith" ),
         new DOM::Element( "html",
           new DOM::Element( "head",
             new DOM::Element( "title",
