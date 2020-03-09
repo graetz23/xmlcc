@@ -2,7 +2,7 @@
 
 ### C++ library for generating, reading, and writing XML
 
-**The continuous integration** [![Build Status](https://travis-ci.org/cscheiblich/xmlcc.svg?branch=master)](https://travis-ci.org/cscheiblich/xmlcc) **on travis-ci.com**
+**The continuous integration** [![Build Status](https://travis-ci.org/graetz23/xmlcc.svg?branch=master)](https://travis-ci.org/graetz23/xmlcc) **on travis-ci.com**
 
 ### Introduction
 
@@ -133,7 +133,7 @@ THE SOFTWARE.
 20150101 version 1.00 :
 - Release of version 1.00
 - changed copyright in the MIT License (MIT) to new year 2015
-- publicated at https://github.com/cscheiblich/xmlcc for swarm development
+- publicated at https://github.com/graetz23/xmlcc for swarm development
 
 20141231 version 0.95 :
 - added getTag() to class Node for receiving XML tag recursively as std::string
