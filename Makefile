@@ -37,7 +37,7 @@ CFLAGS=-O3 -c -Wall
 
 LDFLAGS=
 
-SRCDIR=source
+SRCDIR=.
 
 SRCCNTRL=git
 
@@ -82,19 +82,19 @@ SOURCES= \
 
 OBJECTS=$(SOURCES:.cpp=.o)
 
-EXECUTABLE=xmlcc
+EXECUTABLE=example
 
 all: $(SOURCES) $(EXECUTABLE)
 	
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
-	mv $(EXECUTABLE) ./XMLCC/
+	mv $(EXECUTABLE) ./run/
 	
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f ./XMLCC/$(EXECUTABLE) 
+	rm -f ./run/$(EXECUTABLE) 
 	rm -f $(OBJECTS)
 	
 update:
