@@ -67,6 +67,8 @@ Controller {
     Node* getElement( Node* node, Str strElement ); /// return DOM::Element stored at Node* by name or a null pointer
     Node* getAttribute( Node* node, Str strAttribute ); /// return DOM::Attribute stored at Node* by name or a null pointer
 
+    Node* crawlElement( Node* node, Str strElement ); /// crawl down the child of given node and return the FIRST node for given string or a null pointer
+
     /**************************************************************************/
 
     Root* createRoot( void ); /// XMLCC root, representing the file

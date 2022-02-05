@@ -85,6 +85,32 @@ Controller::getAttribute( Node* node, Str strAttribute ) {
   return (Node*)( attribute ); // if DOM::Attribute not found return null ptr
 } // Controller::getAttribute
 
+Node* // return DOM::Element stored at Node* by name or a null pointer
+Controller::crawlElement( Node* node, Str strElement ) {
+  Node* element = 0;
+  NodeList* elementList = genListOfElements( node );
+  int noOfElements = elementList->size( );
+  int n = 0;
+  bool isSearching = true;
+  while( isSearching && ( n < noOfElements ) ) {
+    Element* elementNode = (Element*)( elementList->get( n ) );
+    Str nameElementNode = elementNode->getStr( );
+    if( nameElementNode.compare( strElement ) == 0 ) {
+      isSearching = false;
+      element = elementNode;
+    } else { // go recursive on that
+      Node* child = crawlElement( elementNode, strElement );
+      if( child != 0 ) {
+	element = child;
+	isSearching = false; // hands back FIRST found node
+      } // if
+    } // if found
+    n++;
+  } // while isSearching
+  delete elementList;
+  return (Node*)( element ); // if DOM::Element not found return null pointer
+} // Controller::crawlElement
+
 /**************************************************************************/
 
 Root* /// create a XMLCC root
