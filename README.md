@@ -2,8 +2,6 @@
 
 ### C++ library for generating, reading, and writing XML
 
-**The continuous integration** [![Build Status](https://travis-ci.org/graetz23/xmlcc.svg?branch=master)](https://travis-ci.org/graetz23/xmlcc) **on travis-ci.com**
-
 ### Introduction
 
 XMLCC is an object-oriented C++ library for parsing, modifying, creating, and writing  the extensible markup language (XML) by implementing a kind of SAX interface and some kind of DOM tree. It is strongly object-oriented and based on [software design patterns](https://en.wikipedia.org/wiki/Software_design_pattern) for generating, searching, and parsing even *badly malformed* XML files.
@@ -87,7 +85,7 @@ delete root; // delete tree again
 
 **XMLCC is distributed under the MIT License (MIT); this file is part of.**
 
-**Copyright (c) 2008-2022 Christian (graetz23@gmail.com)**
+**Copyright (c) 2008-2024 Christian (graetz23@gmail.com)**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

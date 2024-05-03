@@ -3,3 +3,4 @@
 *.exe
 /Debug/
 /Release/
+run/
